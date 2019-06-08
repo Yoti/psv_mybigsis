@@ -34,7 +34,7 @@ procedure AddFileToStream(const FileName: String; const Stream: TMemoryStream);
 var
   InputFile: TFileStream;
 begin
-  InputFile:=TFileStream.Create(FileName, fmOpenRead);
+  InputFile:=TFileStream.Create(FileName, fmOpenRead or fmShareDenyWrite);
   Stream.CopyFrom(InputFile, InputFile.Size);
   InputFile.Free;
 end;
@@ -42,7 +42,7 @@ procedure AddFileToStream(const FileName: String; const Stream: TFileStream);
 var
   InputFile: TFileStream;
 begin
-  InputFile:=TFileStream.Create(FileName, fmOpenRead);
+  InputFile:=TFileStream.Create(FileName, fmOpenRead or fmShareDenyWrite);
   Stream.CopyFrom(InputFile, InputFile.Size);
   InputFile.Free;
 end;
@@ -51,7 +51,7 @@ function GetFileSize(FileName: String): Int64;
 var
   InputFile: TFileStream;
 begin
-  InputFile:=TFileStream.Create(FileName, fmOpenRead);
+  InputFile:=TFileStream.Create(FileName, fmOpenRead or fmShareDenyWrite);
   Result:=InputFile.Size;
   InputFile.Free;
 end;
@@ -69,7 +69,7 @@ procedure AddFileToStreamSafe(const FileName: String; const Stream: TMemoryStrea
 var
   InputFile: TFileStream;
 begin
-  InputFile:=TFileStream.Create(FileName, fmOpenRead);
+  InputFile:=TFileStream.Create(FileName, fmOpenRead or fmShareDenyWrite);
   Stream.Seek(0, soFromEnd);
   Stream.CopyFrom(InputFile, InputFile.Size);
   InputFile.Free;
@@ -78,7 +78,7 @@ procedure AddFileToStreamSafe(const FileName: String; const Stream: TFileStream)
 var
   InputFile: TFileStream;
 begin
-  InputFile:=TFileStream.Create(FileName, fmOpenRead);
+  InputFile:=TFileStream.Create(FileName, fmOpenRead or fmShareDenyWrite);
   Stream.Seek(0, soFromEnd);
   Stream.CopyFrom(InputFile, InputFile.Size);
   InputFile.Free;

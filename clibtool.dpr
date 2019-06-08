@@ -1,4 +1,4 @@
-// ------------------------------------ //
+п»ї// ------------------------------------ //
 // clibtool by Yoti, Copyright (c) 2019 //
 // ------------------------------------ //
 
@@ -16,7 +16,7 @@ uses
 const
   TitleStr: String = 'CLIB tool by Yoti';
   FileSign: AnsiString = 'CLIB' + #$1A + #$1E + #$00 + #$00 + #$00 + #$00 + #$00
-                       + #$01 + #$00 + #$00 + #$00; // далее идёт имя файла и $00
+                       + #$01 + #$00 + #$00 + #$00; // РґР°Р»РµРµ РёРґС‘С‚ РёРјСЏ С„Р°Р№Р»Р° Рё $00
 
 type
   Entry = Packed Record
@@ -58,7 +58,7 @@ begin
     MkDir(outDirName);
   end;
 
-  repeat // пропускаем имя файла неизвестной длины
+  repeat // РїСЂРѕРїСѓСЃРєР°РµРј РёРјСЏ С„Р°Р№Р»Р° РЅРµРёР·РІРµСЃС‚РЅРѕР№ РґР»РёРЅС‹
     inMS.Read(aChr, SizeOf(aChr));
   until (aChr = #$00);
 
@@ -96,6 +96,7 @@ begin
       if ((DirectoryExists(DirName + '\' + MySearchRec.Name) = True) and (Dirs = True)) then begin
         List.Add(MySearchRec.Name);
         Inc(Result);
+
         if (SubDirs = True)
         then FillList(DirName + '\' + MySearchRec.Name, Files, Dirs, SubDirs, List);
       end;
