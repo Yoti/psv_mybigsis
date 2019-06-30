@@ -8,7 +8,7 @@ interface
 
 uses
   Classes, // TStream
-  SysUtils; // fmOpenWrite, fmShareExclusive
+  SysUtils; // fmOpenWrite, fmShareExclusive, fmShareDenyWrite
 
 procedure AddFileToStream(const FileName: String; const Stream: TMemoryStream); Overload;
 procedure AddFileToStream(const FileName: String; const Stream: TFileStream); Overload;
