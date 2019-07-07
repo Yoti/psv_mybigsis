@@ -180,11 +180,13 @@ begin
 
   if (ParamCount < 1) then begin
     WriteLn('usage: ' + ExtractFileName(ParamStr(0)) + ' <input> [output]');
+    SetConsoleTitle(PChar(ConsoleTitle));
     Exit;
   end;
   if ((FileExists(ParamStr(1)) = False)
   and (DirectoryExists(ParamStr(1)) = False)) then begin
     WriteLn('usage: ' + ExtractFileName(ParamStr(0)) + ' <input> [output]');
+    SetConsoleTitle(PChar(ConsoleTitle));
     Exit;
   end;
 
